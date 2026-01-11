@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ЛК менеджера — Тарифы</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="title">Личный кабинет менеджера · Тарифы и услуги</div>
+    <div id="toast" class="toast hidden"></div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <div class="panel__head">
+        <div class="panel__title">Тарифы</div>
+      </div>
+
+      <form id="tariffCreateForm" class="form">
+        <input id="tariffNameInput" class="input" placeholder="Название тарифа" />
+        <button class="btn" type="submit">Добавить</button>
+      </form>
+
+      <div id="tariffsList" class="list"></div>
+    </aside>
+
+    <section class="content">
+      <div class="card">
+        <div class="card__head">
+          <div class="card__title">Детали тарифа</div>
+        </div>
+
+        <div id="tariffEmpty" class="muted">Выберите тариф слева</div>
+
+        <div id="tariffDetails" class="hidden">
+          <div class="grid2">
+            <div>
+              <label class="label">ID (не редактируется)</label>
+              <input id="tariffId" class="input" disabled />
+            </div>
+            <div>
+              <label class="label">Название</label>
+              <input id="tariffName" class="input" />
+            </div>
+          </div>
+
+          <div class="row">
+            <button id="tariffSaveBtn" class="btn" type="button">Сохранить</button>
+            <button id="tariffDeleteBtn" class="btn danger" type="button">Удалить тариф</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__head">
+          <div class="card__title">Типы услуг</div>
+        </div>
+
+        <form id="typeCreateForm" class="form">
+          <input id="typeNameInput" class="input" placeholder="Новый тип услуги" />
+          <button class="btn" type="submit">Добавить тип</button>
+        </form>
+
+        <div id="typesList" class="list small"></div>
+      </div>
+
+      <div class="card">
+        <div class="card__head">
+          <div class="card__title">Услуги тарифа</div>
+        </div>
+
+        <div id="servicesBlock" class="hidden">
+          <form id="serviceCreateForm" class="form grid3">
+            <select id="serviceTypeSelect" class="input"></select>
+            <input id="serviceValueInput" class="input" placeholder="Числовое значение" />
+            <input id="serviceUnitInput" class="input" placeholder="Ед. изм." />
+            <button class="btn" type="submit">Добавить услугу</button>
+          </form>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Тип</th>
+                <th>Параметр</th>
+                <th>Перенести</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="servicesTbody"></tbody>
+          </table>
+        </div>
+
+        <div id="servicesEmpty" class="muted">Выберите тариф, чтобы управлять услугами</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
